@@ -17,7 +17,6 @@ else:
         end_index = mid + 1
     z = 1
     for i in range(start_index, end_index):
-        # Convert character to integer and multiply into z
         z *= int(x[i])
 
     print("The product of the middle digits (z) is:", z)
