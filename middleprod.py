@@ -1,30 +1,23 @@
-x = int(input("Enter a number: "))
-if x<0:
-    x = -x
-temp = x
-length =0
-while temp >0:
-    length +=1
-    temp//=10
+x = input("Enter a number: ")
 
-if length<=3:
-    print("Num must have at least 4 digits")
+if x == '-':
+    x = x[1:]
+
+length = len(x)
+
+if length < 3:
+    print("The number must have at least 3 digits.")
 else:
-    mid_pos = length//2
+    mid = length // 2
     if length % 2 != 0:
-        chop = mid_pos
+        start_index = mid
+        end_index = mid + 1
     else:
-        chop = mid_pos - 1
+        start_index = mid - 1
+        end_index = mid + 1
+    z = 1
+    for i in range(start_index, end_index):
+        # Convert character to integer and multiply into z
+        z *= int(x[i])
 
-    i = 0
-    while i < chop:
-        x //= 10
-        i += 1
-    if length % 2 != 0:
-        z = x % 10
-    else:
-        digit2 = x % 10
-        x //= 10
-        digit1 = x % 10
-        z = digit1 * digit2
     print("The product of the middle digits (z) is:", z)
